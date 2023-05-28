@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JavaScript Radio Button</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("https://cdn.wallpapersafari.com/11/70/oH5OTA.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .transparent-div {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid #333; /* Add border to the form */
+    }
+
+    .radio-container {
+      text-align: left;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .button-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .btn {
+      background-color: #527554; 
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .btn:hover {
+      background-color: #23532d; 
+    }
+
+    .btn:focus {
+      outline: none;
+    }
+
+    .js-section {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: left;
+    }
+    
+    .made-by {
+      font-weight: bold;
+      font-style: italic;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="transparent-div">
+    <p class="made-by">Made by: Damaso, Nikkola Divine.</p>
+    <legend style="font-weight: bold; font-size: 18px;">SELECT YOUR SIZE:</legend>
+    <div class="radio-container">
+      <input type="radio" name="size" value="XS" id="xs">
+      <label for="xs">XS</label> &#x1F9E1; <!-- Emoji here -->
+    </div>
+    <div class="radio-container">
+      <input type="radio" name="size" value="S" id="s">
+      <label for="s">S</label> &#x1F9E1; <!-- Emoji here -->
+    </div>
+    <div class="radio-container">
+      <input type="radio" name="size" value="M" id="m">
+      <label for="m">M</label> &#x1F9E1; <!-- Emoji here -->
+    </div>
+    <div class="radio-container">
+      <input type="radio" name="size" value="L" id="l">
+      <label for="l">L</label> &#x1F9E1; <!-- Emoji here -->
+    </div>
+    <div class="radio-container">
+      <input type="radio" name="size" value="XL" id="xl">
+      <label for="xl">XL</label> &#x1F9E1; <!-- Emoji here -->
+    </div>
+    <div class="radio-container">
+      <input type="radio" name="size" value="XXL" id="xxl">
+      <label for="xxl">XXL</label> &#x1F9E1; <!-- Emoji here -->
+    </div>
+    <legend style="font-weight: bold; font-size: 18px;">SELECT YOUR FAVORITE COLORS:</legend>
+    <label for="c1">
+      <input type="checkbox" name="color" value="🚀 You like RED! 🖍️🔴" id="c1">Red
+    </label>
+    <label for="c2">
+      <input type="checkbox" name="color" value="🚀 You like GREEN! 💚🟢" id="c2">Green
+    </label>
+    <label for="c3">
+      <input type="checkbox" name="color" value="🚀 You like BLUE! 💙🔵" id="c3">Blue
+    </label>
+    <p class="button-container">
+      <button id="bton">Get Selected Colors</button>
+    </p>
+    <p class="button-container">
+      <button id="btn">Show Selected Value</button>
+    </p>
+    <p id="output"></p>
+    <script>
+      const bton = document.querySelector('#bton');
+      bton.addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('input[name="color"]:checked');
+        const values = Array.from(checkboxes).map(checkbox => checkbox.value);
+        alert(values);
+      });
+      const btn = document.querySelector('#btn');
+      const radioButtons = document.querySelectorAll('input[name="size"]');
+      const output = document.querySelector('#output');
+      btn.addEventListener("click", () => {
+        let selectedSize;
+        for (const radioButton of radioButtons) {
+          if (radioButton.checked) {
+            selectedSize = radioButton.value;
+            break;
+          }
+        }
+        // 🚀 show the output:
+        output.innerText = selectedSize ? `You selected ${selectedSize}` : `You haven't selected any size`;
+      });
+    </script>
+  </div>
+</body>
+</html>
